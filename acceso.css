@@ -1,0 +1,457 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+:root {
+    --bg-page: #e5e7eb;        /* Flat neutral gray background */
+    --bg-card: #ffffff;        /* Pure white container background */
+    --border-color: #d1d5db;   /* Flat gray borders */
+    --border-focus: #374151;   /* Active field border color */
+    --text-main: #111827;      /* Primary text color */
+    --text-muted: #6b7280;     /* Secondary text color */
+    --input-bg: #f9fafb;       /* Input box background */
+    --btn-bg: #374151;         /* Primary action button background */
+    --btn-hover: #1f2937;      /* Button hover color */
+    --cloud-bg: #d1d5db;       /* Decorative background clouds color */
+    --radius-card: 10px;
+    --radius-elem: 6px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-cloud-1 {
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    width: 240px;
+    height: 75px;
+    background-color: var(--cloud-bg);
+    border-radius: 100px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-cloud-1::before {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -55px;
+    left: 25px;
+}
+
+.bg-cloud-1::after {
+    content: '';
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -38px;
+    right: 25px;
+}
+
+.bg-cloud-2 {
+    position: absolute;
+    top: 14%;
+    right: 7%;
+    width: 290px;
+    height: 90px;
+    background-color: var(--cloud-bg);
+    border-radius: 100px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-cloud-2::before {
+    content: '';
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -65px;
+    left: 35px;
+}
+
+.bg-cloud-2::after {
+    content: '';
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -42px;
+    right: 30px;
+}
+
+.bg-cloud-3 {
+    position: absolute;
+    bottom: 7%;
+    left: 7%;
+    width: 270px;
+    height: 80px;
+    background-color: var(--cloud-bg);
+    border-radius: 100px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-cloud-3::before {
+    content: '';
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -55px;
+    left: 30px;
+}
+
+.bg-cloud-3::after {
+    content: '';
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -38px;
+    right: 25px;
+}
+
+.bg-cloud-4 {
+    position: absolute;
+    bottom: 12%;
+    right: 5%;
+    width: 210px;
+    height: 65px;
+    background-color: var(--cloud-bg);
+    border-radius: 100px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-cloud-4::before {
+    content: '';
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -45px;
+    left: 20px;
+}
+
+.bg-cloud-4::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: var(--cloud-bg);
+    border-radius: 50%;
+    top: -28px;
+    right: 20px;
+}
+
+.login-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* CARD 1: TOP HEADER CONTAINER */
+.card-header {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.main-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Exact Bounding Box Wrapper for Perfect Vertical Midpoint Matching */
+.cloud-logo-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 20px; /* Bounding box height matching cloud shape's total height */
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Pure CSS Cloud Shape bounded cleanly [Y=0 to Y=20px] */
+.cloud-logo {
+    width: 32px;
+    height: 13px;
+    background-color: var(--btn-bg);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0; /* Base pill spans Y=7px to Y=20px */
+    left: 0;
+}
+
+.cloud-logo::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--btn-bg);
+    border-radius: 50%;
+    top: -7px; /* Left circle spans Y=0px to Y=15px */
+    left: 4px;
+}
+
+.cloud-logo::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: var(--btn-bg);
+    border-radius: 50%;
+    top: -5px; /* Right circle spans Y=2px to Y=13px */
+    right: 4px;
+}
+
+/* CARD 2: MAIN FORM CONTAINER */
+.card-body {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Pure CSS Avatar */
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar-head {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatar-body {
+    width: 48px;
+    height: 32px;
+    border-radius: 24px 24px 0 0;
+    background-color: var(--text-muted);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.field-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-elem);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.form-input.password-field {
+    padding-right: 2.75rem;
+}
+
+.form-input:focus {
+    border-color: var(--border-focus);
+    background-color: #ffffff;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Pure CSS Eye Toggle Button */
+.toggle-eye-btn {
+    position: absolute;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-elem);
+    outline: none;
+    padding: 0;
+}
+
+.toggle-eye-btn:focus-visible {
+    outline: 2px solid var(--border-focus);
+}
+
+.css-eye-container {
+    width: 22px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.css-eye-shape {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--btn-bg);
+    border-radius: 75% 0;
+    transform: rotate(45deg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.css-eye-pupil {
+    width: 4px;
+    height: 4px;
+    background-color: var(--btn-bg);
+    border-radius: 50%;
+}
+
+.css-eye-slash {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background-color: var(--btn-bg);
+    top: 7px;
+    left: 0;
+    transform: rotate(-35deg);
+    transition: opacity 0.15s ease;
+    opacity: 1;
+}
+
+.toggle-eye-btn.showing .css-eye-slash {
+    opacity: 0;
+}
+
+.submit-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 0.85rem;
+    background-color: var(--btn-bg);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--btn-bg);
+    border-radius: var(--radius-elem);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--btn-hover);
+}
+
+.submit-btn:disabled {
+    background-color: #9ca3af;
+    border-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.status-box {
+    display: none;
+    padding: 0.65rem;
+    border-radius: var(--radius-elem);
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    background-color: #f3f4f6;
+    color: var(--text-main);
+    width: 100%;
+}

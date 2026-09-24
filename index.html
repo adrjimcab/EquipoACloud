@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso EquipoACloud</title>
+    <link rel="stylesheet" href="acceso.css"> 
+</head>
+
+<body>
+    <div class="bg-cloud-1" aria-hidden="true"></div>
+    <div class="bg-cloud-2" aria-hidden="true"></div>
+    <div class="bg-cloud-3" aria-hidden="true"></div>
+    <div class="bg-cloud-4" aria-hidden="true"></div>
+
+    <div class="login-wrapper">
+
+        <header class="card-header">
+            <h1 class="main-title">EquipoACloud</h1>
+            <div class="cloud-logo-wrapper" aria-hidden="true">
+                <div class="cloud-logo"></div>
+            </div>
+        </header>
+
+        <main class="card-body">
+
+            <!-- Pure CSS Avatar -->
+            <div class="avatar-circle" title="Foto de usuario">
+                <div class="avatar-head"></div>
+                <div class="avatar-body"></div>
+            </div>
+
+            <form class="login-form" id="loginForm" autocomplete="off" onsubmit="return false;">
+
+                <!-- Username Field -->
+                <div class="field-group">
+                    <label class="field-label" for="username">Usuario</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="username" 
+                            class="form-input" 
+                            placeholder="Nombre de usuario" 
+                            required 
+                        />
+                    </div>
+                </div>
+
+                <!-- Password Field with Pure CSS Eye Toggle -->
+                <div class="field-group">
+                    <label class="field-label" for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-input password-field" 
+                            placeholder="Ingresa tu contraseña" 
+                            required 
+                        />
+                        
+                        <button 
+                            type="button" 
+                            class="toggle-eye-btn" 
+                            id="togglePasswordBtn" 
+                            aria-label="Mostrar u ocultar contraseña"
+                            title="Mostrar u ocultar contraseña">
+                            <div class="css-eye-container">
+                                <div class="css-eye-shape">
+                                    <div class="css-eye-pupil"></div>
+                                </div>
+                                <div class="css-eye-slash" id="eyeSlash"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="statusBox" class="status-box" role="alert"></div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Acceder</button>
+
+            </form>
+
+        </main>
+
+    </div>    
+</body>
+</html>
